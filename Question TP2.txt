@@ -1,0 +1,36 @@
+1. Quelle est la différence entre utiliser `Vector3.Distance()` et calculer `(posA - posB).magnitude`?
+Il n'y a pas vraiment de différence, Vector3.Distance() calcul (posA - posB).magnitude lui-même. Utliser la fonction Distance() sera plus lisible.
+	
+2. Pourquoi `Vector3.sqrMagnitude` pourrait être préférable pour comparer des distances ?
+magnitude contient une racine carré alors que sqrMagnitude renvoie simplement la distance au carré. Cette méthode est donc moins couteuse.
+
+3. Quels seraient les problèmes avec notre programme si nous avions 1000 objets au lieu de 3 ?
+Sachant que l'on calcul tout à chaque frame, plus on ajoute d'objets plus les calculs seront couteux et plus notre programme risque d'avoir des problèmes d'execution.
+
+
+1. Quelles opérations mathématiques sont utilisées pour déterminer l’angle entre 2 vecteurs ?
+On fait un produit scalaire que l'on divise par le produit des deux normes de nos vecteurs et pour finir on applique la fonction arccos.
+
+2. Pourquoi utilisons-nous *TextMeshPro* plutôt qu’un *UI Text* comme au TP1 ?
+Cela nous donne un rendu plus net, avec un meilleur visibilité en 3D et une mise en forme plus pratique.
+
+1. Bougez votre main gauche et observez les valeurs affichées. Que remarquez-vous et pourquoi ?
+Les valeurs pour le local ne changent pas, c'est normal car l'emplacement du quad, par rapport à la manette, ne change pas. 
+Seul les valeurs World vont changées car notre manettes se déplacent et donc ne se trouve pas au même endroit dans le monde.
+
+2. Si vous modifiez la rotation de la main parente, que se passe-t-il pour le panneau enfant ?
+Le panneau suivra la rotation de la manette, car dans Unity, les enfants hérite de la transformation appliquée aux parents.
+
+
+1. Quelles sont les différences de comportement entre les 3 modes ?
+MoveTowards : avance avec une vitesse constante depuis une position et nécessite un test pour savoir si l'objet est arrivé.
+Lerp : l'objet démarre et s'arrête brusquement et la position est calculée depuis le temps.
+Smooth : la même chose que Lerp mais en ralentissant à son arrivée et accélérant au départ.
+
+2. Déplacez une borne en mode Play. Observez comment chaque mode réagit à ce changement. Quelle différence de comportement constatez-vous entre MoveTowards et Lerp ?
+MoveTowards : Pas de saut, la sphère continue de suivre son objectif de manière fluide.
+Lerp, Smooth : Du à sa manière de calcul depuis le temps, les sphères font des sauts à chaque nouvelle position.
+  
+3. Testez différentes distances entre bornes : le mouvement reste-t-il fluide ?
+MoveTowards : Le mouvement reste fluide tant que la distance 
+Lerp, Smooth : le mouvement reste fluide.
